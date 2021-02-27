@@ -13,12 +13,14 @@ class BST:
 
 	def __init__(self, num=None):
 		self.key=num
-
+	# return key value when called on print or converted to string
 	def __str__(self):
 		return str(self.key)
 	
 	# Insert new node to the tree
 	def insert(self,num):
+		print('\ninsert function is called')
+		print('The value to insert is: {}'.format(num))
 		z = BST(num)
 		y = None
 		x = self.root
@@ -35,14 +37,17 @@ class BST:
 			y.left=z
 		else:
 			y.right=z
+		self.showBST()
+		self.drawBST()
 
-	# Inorder tree walk
+	# Inorder tree walk implementation
+	# decorating function for inOrderTreeWalk, to print new line and header 
 	def inOrder(self):
 		print('\ninOrder function is called')
 		print('Printing values in ascending order:')
 		self.inOrderTreeWalk(self.root)
 		print('')
-
+	# actual algorithm of inorder tree walk presented in lectures
 	def inOrderTreeWalk(self, node):
 		if node.left!=None:
 			self.inOrderTreeWalk(node.left)
@@ -102,7 +107,7 @@ class BST:
 				pass
 			return result 
 		return
-	# Function to draw the composed tree 
+	# Function to draw the composed tree using traverseTree method
 	def drawBST(self):
 		print('\ndrawBST function is called')
 		print('Printing tree:\n')
@@ -119,7 +124,7 @@ class BST:
 
 	    	
 
-
+# Main function
 arr = [40, 70, 50, 60, 20, 80, 30, 10, 90]
 tree = BST()
 print("Initial array: {}".format(arr))
@@ -128,6 +133,4 @@ for value in arr:
 	tree.insert(value)
 
 tree.inOrder()
-tree.showBST()
-tree.drawBST()
 
