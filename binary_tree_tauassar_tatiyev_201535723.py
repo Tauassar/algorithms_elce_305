@@ -122,7 +122,7 @@ class BST:
 
 arr = [40, 70, 50, 60, 20, 80, 30, 10, 90]
 tree = BST()
-
+print("Initial array: {}".format(arr))
 # Inserting values into the tree
 for value in arr:
 	tree.insert(value)
